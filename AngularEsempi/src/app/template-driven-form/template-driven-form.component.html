@@ -1,0 +1,40 @@
+<form novalidate id=formId (ngSubmit)="submitMethod()" #f="ngForm">
+    <fieldset ngModelGroup="name">
+        <div class="form-group" [ngClass]="{'has-danger' : firstName.invalid && (firstName.dirty || firstName.touched), 'has-success': firstName.valid && (firstName.dirty|| firstName.touched)}">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" class="form-control" [(ngModel)]="model.firstName" #firstName="ngModel" required>
+            <div class="form-control-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                <p *ngIf="firstName.errors.required">
+                    The field is required
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-danger': lastName.invalid && (lastName.dirty || lastName.touched),'has-success': lastName.valid && (lastName.dirty || lastName.touched) }">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" class="form-control" [(ngModel)]="model.lastName" #lastName="ngModel" required>
+            <div class="form-control-feedback" *ngIf="lastName.errors && ( lastName.dirty || lastName.touched)">
+                <p *ngIf="lastName.errors.required">
+                    The field is required!
+                </p>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group" [ngClass]="{'has-danger': email.invalid && (email.dirty || email.touched),'has-success': email.valid &&(email.dirty ||email.touched)}">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" [(ngModel)]="model.email" required pattern="[^ @]*@[^ @]*" #email="ngModel">
+        <div class="form-control-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+            <p *ngIf="email.errors.required">
+                The field is required!
+            </p>
+            <p *ngIf="email.errors.pattern">
+                Email must contain at least the @ character
+            </p>
+
+        </div>
+    </div>
+
+
+
+    <pre> {{f.value | json}}</pre>
+</form>
