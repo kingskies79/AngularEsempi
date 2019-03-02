@@ -10,5 +10,5 @@ export class AppComponent {
   private loading = false;
   constructor(private itunes: ItunesService) {   }
 
-  doSearch(term: string) {     this.loading = true;     this.itunes.search(term).then(_ => this.loading = false)   } 
+  doSearch(term: string) {     this.loading = true;     this.itunes.search(term).then(() => this.loading = false)   } 
 }
