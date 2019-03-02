@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SearchItem } from './search-item';
 
+import {Observable} from 'rxjs';
 
 
 
@@ -17,31 +18,24 @@ export class ItunesService {
     this.results = [];
     this.loading = false;
   }
-  search(term: string) {
-    let promise = new Promise((resolve, reject) => {
+  search(term: string): Observable<SearchItem[]> {
+   
       let url = `${this.apiRoot}?term=${term}&media=music&limit=20`;
-      this.http.get(url)
-        .toPromise()
-        .then(
-          res => {
-            this.results = res['results'].map(item => {
-              return new SearchItem (
-                item.trackName,
-                item.artistName,
-                item.trackViewUrl,
-                item.artworkUrl30,
-                item.artistId
-              );
-            });
-            resolve();
-            },
-            msg => {
-              reject(msg);
-            }
-          );
+      return this.http.get(url)
+        .map( res => {
+          return res.results.map(item => {
+            return new SearchItem(
+              item.trackName,
+              item.artistName,
+              item.trackViewUrl,
+              item.artworkUrl30,
+              item.artistId
+            );
+          });
+       
       });
-    return promise;
-    }
+     
+   }
   }
 
 
