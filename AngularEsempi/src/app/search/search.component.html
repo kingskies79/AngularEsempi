@@ -1,0 +1,11 @@
+<form class="form-inline">
+    <div class="form-group">
+        <input type="text" class="form-control" name="search" placeholde="Enter a search" #search> <br>
+        <button class="btn btn-primary" (click)="doSearch(search.value)">Search</button>
+    </div>
+</form>
+
+
+<div class="list-group">
+    <a [routerLink]="['/artist', track.artistId]" class="list-group-item list-group-item-action" *ngFor="let track of searchList"> <img src="{{track.thumbnail}}"> {{track.name}} <span class="text-muted">by</span> {{ track.artist }} </a>
+</div>

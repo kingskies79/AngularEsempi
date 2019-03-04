@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-body">
+        {{artist?.artistType }}
+    </div>
+    <h5 class="card-title"> {{artist?.artistName}} | Genere: {{artist?.primaryGenreName}} </h5>
+
+</div>
+
+<footer>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']"  [routerLink]="['./tracks']">Tracks </a>   </li>
+
+        <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['./albums']">Albums  </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['./video']">Videos  </a>
+        </li>
+    </ul>
+</footer>
+<router-outlet></router-outlet>
