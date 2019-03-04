@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { SearchItem } from './search-item';
 
+import { Jsonp } from '@angular/http';
 
 
 
@@ -13,19 +14,20 @@ export class ItunesService {
   results: SearchItem[];
   loading: boolean;
   apiRoot = 'https://itunes.apple.com/search';
-  constructor(private http: HttpClient) {
+  constructor(private jsonp: Jsonp) {
     this.results = [];
     this.loading = false;
   }
   search(term: string) {
-    let promise = new Promise((resolve, reject) => {
-      let url = `${this.apiRoot}?term=${term}&media=music&limit=20`;
-      this.http.get(url)
+    return new Promise((resolve, reject) => {
+      this.results = [];
+      let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
+      this.jsonp.request(apiURL)
         .toPromise()
         .then(
           res => {
-            this.results = res['results'].map(item => {
-              return new SearchItem (
+            this.results = res.json().results.map(item => {
+              return new SearchItem(
                 item.trackName,
                 item.artistName,
                 item.trackViewUrl,
@@ -33,16 +35,15 @@ export class ItunesService {
                 item.artistId
               );
             });
-            resolve();
-            },
-            msg => {
-              reject(msg);
-            }
-          );
-      });
-    return promise;
-    }
+            resolve(this.results);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
   }
+}
 
 
 
