@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SearchService} from '../search.service';
+import {SearchItem} from '../search-item';
 
 @Component({
   selector: 'app-search',
@@ -6,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  searchList: any[];
+  constructor(private search: SearchService) {
 
-  constructor() { }
+   }
+doSearch(term: string) {
+  this.search.doSearch(term).then(res =>
+  {
+    this.searchList = res;
 
+} );
+  console.log(this.searchList);
+}
   ngOnInit() {
   }
 
