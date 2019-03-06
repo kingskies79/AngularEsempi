@@ -1,0 +1,5 @@
+<div class="list-group">
+    <div class="list-group-item" *ngFor="let track of tracks">
+        <a href="{{track.previewUrl}}"> <img src="{{track?.artworkUrl60}}" alt=""> <span class="list-inline">{{track?.collectionName}}</span></a>
+    </div>
+</div>

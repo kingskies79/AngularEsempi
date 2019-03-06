@@ -13,7 +13,7 @@ export class SearchService {
     this.loading = false;
     this.itemList = [];
   }
-  doSearch(term: string) {
+  search(term: string) {
     return new Promise((resolve, reject) => {
       this.jsonp.request(`${this.apiUrl}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`)
         .toPromise()
@@ -23,7 +23,7 @@ export class SearchService {
               item.trackName,
               item.artistName,
               item.trackViewUrl,
-              item.artworkUrl30,
+              item.artworkUrl60,
               item.artistId
             );
           });

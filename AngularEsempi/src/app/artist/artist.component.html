@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-block">
+        <h4>{{artist?.artistName}} - {{artist?.artistType}}</h4>
+        <hr>
+        <footer>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ './tracks' ]" [routerLinkActive]="['active']">Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['./albums']" [routerLinkActive]="['active']">Albums</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</div>
+<router-outlet></router-outlet>

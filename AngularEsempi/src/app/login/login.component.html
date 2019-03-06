@@ -1,0 +1,10 @@
+<form [formGroup]="myform" class="form-group">
+    <label for="userName">User Name</label>
+    <div class="form-group" [ngClass]="{'has-danger': userName.invalid && (userName.dirty || userName.touched), 'has-success': userName.valid && (userName.dirty || userName.touched)}">
+        <input type="text" class="form-control" formControlName="userName" required #userName>
+    </div>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" formControlName="password" required #password>
+    <button type="button" class="btn btn-primary" (click)="logIn(userName.value, password.value)">Log in</button>
+    <pre>{{myform.value | json}}</pre>
+</form>
