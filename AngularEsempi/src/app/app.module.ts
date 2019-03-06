@@ -20,15 +20,17 @@ import { UserService } from './user.service';
 const route: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent},
+
   {
     path: 'artist/:artistId', component: ArtistComponent,
     canActivate: [AlwaysAuthGuard, OnlyLoggedInUserGuard],
     children: [
       { path: 'tracks', component: ArtistTrackListComponent },
       { path: 'albums', component: ArtistAlbumListComponent },
-      { path: '**', redirectTo: 'tracks', pathMatch: 'full' }
+
+      { path: '**', redirectTo: 'tracks', pathMatch: 'full' },
     ]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
@@ -53,7 +55,7 @@ const route: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     JsonpModule,
-    RouterModule.forRoot(route)
+    RouterModule.forRoot(route, {onSameUrlNavigation: 'reload'})
   ],
   providers: [AlwaysAuthGuard, OnlyLoggedInUserGuard, UserService],
   bootstrap: [AppComponent]

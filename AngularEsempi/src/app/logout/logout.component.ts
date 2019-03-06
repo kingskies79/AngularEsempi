@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {UserService} from '../user.service';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -9,19 +8,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-  @Output() loggedOut = new EventEmitter <boolean>();
-  constructor(private userService: UserService, private route: Router) {
+
+  constructor() {
 
    }
 
   ngOnInit() {
-
-  }
-  logOut() {
-
-    this.userService.logIn(false);
-    this.loggedOut.emit(false);
-    this.userService.isLoggedIn();
 
   }
 

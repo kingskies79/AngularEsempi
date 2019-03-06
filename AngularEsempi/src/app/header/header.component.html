@@ -13,7 +13,7 @@
         </ul>
         <div class="form-inline my-2 my-lg-0">
 
-            <a *ngIf="login" [routerLink]="['logout']" class="nav-link">Log Out</a>
+            <a *ngIf="login" (click)="setLogOut(false)" [routerLink]="['/logout']" class="nav-link">Log Out</a>
 
         </div>
         <div class="form-inline my-2 my-lg-0">
@@ -23,11 +23,6 @@
         </div>
     </div>
 </div>
-<p *ngIf="!login">
-    <ng-content select=".login"></ng-content>
-</p>
-<p *ngIf="login">
-    <ng-content select=".logout"></ng-content>
-</p>
+
 
 <router-outlet></router-outlet>

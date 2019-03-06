@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
 import {UserService} from './user.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {UserService} from './user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit, OnInit {
+export class AppComponent implements AfterViewInit, OnInit, AfterContentInit {
 
   login: boolean;
 
@@ -14,6 +14,9 @@ export class AppComponent implements AfterViewInit, OnInit {
   this.login = false;
 
  }
+ngAfterContentInit() {
+  this.login = this.user.isLoggedIn();
+}
 
  ngAfterViewInit() {
    this.login = this.user.isLoggedIn();
