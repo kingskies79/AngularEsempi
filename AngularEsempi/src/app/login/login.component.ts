@@ -34,7 +34,8 @@ createForm() {
 
 }
 logIn(userName: string, password: string) {
-  this.userService.logIn(true);
+  this.userService.setLogIn(true);
+
   this.route.navigate(['/home']);
 
 }

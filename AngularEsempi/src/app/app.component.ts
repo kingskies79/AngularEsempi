@@ -6,7 +6,7 @@ import {UserService} from './user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit, OnInit, AfterContentInit {
+export class AppComponent implements  OnInit {
 
   login: boolean;
 
@@ -14,21 +14,14 @@ export class AppComponent implements AfterViewInit, OnInit, AfterContentInit {
   this.login = false;
 
  }
-ngAfterContentInit() {
-  this.login = this.user.isLoggedIn();
-}
 
- ngAfterViewInit() {
-   this.login = this.user.isLoggedIn();
-
- }
  ngOnInit() {
-    this.login = this.user.isLoggedIn();
+   // this.login = this.user.isLoggedIn();
 
  }
  setLogIn(log: boolean) {
    this.login = log;
-   this.user.logIn(log);
+   this.user.setLogIn(log);
  }
 
 

@@ -15,16 +15,17 @@ export class HeaderComponent implements OnInit {
   constructor(private user: UserService) {
      this.user.logChange.subscribe((value) => {
       this.login = value;
-      console.log('constructor Header ' + value);
+      console.log('constructor Header ' + this.login);
     });
   }
 
   ngOnInit() {
-
+    this.login = JSON.parse(localStorage.getItem('logIN'));
   }
 
   setLogOut(log: boolean) {
-    this.user.logIn(log);
+    this.user.setLogIn(log);
+    localStorage.removeItem('logIN');
   }
 
 }
