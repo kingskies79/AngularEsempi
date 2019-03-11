@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { resolve } from 'url';
+import { HttpClient } from '@angular/common/http';
+
+
+interface isLoggedIn {
+  status: boolean;
+}
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-private log = JSON.parse(localStorage.getItem('logIN') || 'false');
+private log = false;
+value: boolean;
 logChange: Subject<boolean> = new Subject<boolean>();
-constructor() {
-this.log = JSON.parse(localStorage.getItem('logIN'));
+constructor(private http: HttpClient) {
+
 }
 
-  isLoggedIn(): boolean {
+  isLoggedIn(): Observable<isLoggedIn> {
+  return this.http.get<isLoggedIn>('http://localhost:80/api/isloggedin.php');
 
-    return JSON.parse(localStorage.getItem('logIN') || this.log.toString());
+
   }
 
   setLogIn(log: boolean) {
     console.log('logIn' + log);
     this.log = log;
-    localStorage.setItem('logIN', this.log.toString() );
     this.logChange.next(log);
 
   }

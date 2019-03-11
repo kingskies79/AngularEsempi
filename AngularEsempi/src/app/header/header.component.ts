@@ -1,6 +1,6 @@
-import { Component, OnInit,  Input, ContentChild,  } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import {UserService} from '../user.service';
-import { LoginComponent } from '../login/login.component';
+
 
 @Component({
   selector: 'app-header',
@@ -10,8 +10,7 @@ import { LoginComponent } from '../login/login.component';
 export class HeaderComponent implements OnInit {
    login: boolean;
    logout: boolean;
-   @Input() logged: boolean;
-   @ContentChild(LoginComponent) loginContentChild: LoginComponent;
+
   constructor(private user: UserService) {
      this.user.logChange.subscribe((value) => {
       this.login = value;

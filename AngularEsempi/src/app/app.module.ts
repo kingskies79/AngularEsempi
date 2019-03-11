@@ -57,7 +57,7 @@ const route: Routes = [
     JsonpModule,
     RouterModule.forRoot(route, {onSameUrlNavigation: 'reload'})
   ],
-  providers: [AlwaysAuthGuard, OnlyLoggedInUserGuard, UserService],
+  providers: [UserService, AlwaysAuthGuard, OnlyLoggedInUserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
