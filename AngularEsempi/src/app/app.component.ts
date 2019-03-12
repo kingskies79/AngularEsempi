@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
-import {UserService} from './user.service';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -8,20 +8,15 @@ import {UserService} from './user.service';
 })
 export class AppComponent implements  OnInit {
 
-  login: boolean;
 
- constructor(private user: UserService) {
-  this.login = false;
+ constructor() {
+
 
  }
 
  ngOnInit() {
    // this.login = this.user.isLoggedIn();
 
- }
- setLogIn(log: boolean) {
-   this.login = log;
-   this.user.setLogIn(log);
  }
 
 
