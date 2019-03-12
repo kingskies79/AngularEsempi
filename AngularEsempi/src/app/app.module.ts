@@ -1,30 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { Routes, RouterModule } from '@angular/router';
-import { JsonpModule } from '@angular/http';
-import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { SearchComponent } from './search/search.component';
-import { SearchService } from './search.service';
+import {  FormsModule,    } from '@angular/forms';
+import { JokeComponent } from './joke/joke.component';
+import { JokeListComponent } from './joke-list/joke-list.component';
+import { JokeFormComponent } from './joke-form/joke-form.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
-
+    JokeComponent,
+    JokeListComponent,
+    JokeFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    JsonpModule
 
   ],
-  providers: [SearchService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
