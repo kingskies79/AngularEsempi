@@ -1,9 +1,0 @@
-<div class="card card-block">
-    <div class="card card-title">{{joke.setup}}</div>
-    <p [hidden]="joke.hide">
-        <ng-content select=".setup"></ng-content>
-        <ng-content select=".punchline"></ng-content>
-    </p>
-
-    <button type="button" (click)="joke.toggle();" class="btn btn-primary">Show</button>
-</div>
