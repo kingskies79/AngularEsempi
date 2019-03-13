@@ -1,11 +1,69 @@
-<app-carousel [delay]="5000">
-    <app-carousel-item>
-        <img src="https://unsplash.it/200?image=0">
-    </app-carousel-item>
-    <app-carousel-item>
-        <img src="https://unsplash.it/200?image=100">
-    </app-carousel-item>
-    <app-carousel-item>
-        <img src="https://unsplash.it/200?image=200">
-    </app-carousel-item>
-</app-carousel>
+<h3>
+    [ngSwitch]</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul [ngSwitch]="country.country">
+            <li *ngSwitchCase="'Italia'" class="text-primary"> {{ i + 1}} {{person.name}} {{v}}</li>
+            <li *ngSwitchCase="'Francia'" class="text-success"> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
+
+<h3>[ngStyle]</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul [ngStyle]="{'background-color': country.country === 'Italia'? ' green': 'red'}">
+            <li> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
+
+<h3>[ngStyle] function</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul [ngStyle]="{'background-color': getColor(country.country)}">
+            <li> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
+<h3>[style.color]</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul [style.color]="getColor(country.country)">
+            <li> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
+<h3>[style.background-color]</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul [style.background-color]="getColor(country.country)">
+            <li> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
+
+<h3>[ngClass]</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul [ngClass]="{'text-primary': country.country === 'Italia', 'text-success': country.country === 'Francia'}">
+            <li> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
+
+<h3>[class.text-success]= "true</h3>
+<div *ngFor="let country of states">
+    {{country.country}}
+    <div *ngFor="let person of country.persone; let i = index; let v= value">
+        <ul>
+            <li [class.text-success]="country.country==='Italia'" [class.text-primary]="country.country==='Francia'"> {{ i + 1}} {{person.name}} {{v}}</li>
+        </ul>
+    </div>
+</div>
