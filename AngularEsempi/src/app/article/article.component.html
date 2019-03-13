@@ -1,0 +1,9 @@
+<div class="card block" *ngFor="let article of articleList" ccCardHover>
+    <div class="card-title">{{article.title}}</div>
+    <div *ngIf="article.type==='text'" [style.border]="'solid 1px red'">
+        {{article.content}}
+    </div>
+    <div *ngIf="article.type==='img'" [style.border]="'solid 1px blue'">
+        <img src="{{article.content}}">
+    </div>
+</div>
