@@ -1,7 +1,6 @@
-<div class="card card-block">
-    <div class="card card-title">{{joke.setup}}</div>
-    <p [hidden]="joke.hide">
-        <ng-content select=".setup"></ng-content>
+<div class="card card-block" ccCardHover>
+    <ng-content select=".setup"></ng-content>
+    <p class="card-text" [style.display]="'none'">
         <ng-content select=".punchline"></ng-content>
     </p>
 
