@@ -1,8 +1,0 @@
-<div class="card card-block" [ccCardHover]="{querySelector:'.card-text'}">
-    <ng-content select=".setup"></ng-content>
-    <p class="card-text" [style.display]="'none'">
-        <ng-content select=".punchline"></ng-content>
-    </p>
-
-    <button type="button" (click)="joke.toggle();" class="btn btn-primary">Show</button>
-</div>
