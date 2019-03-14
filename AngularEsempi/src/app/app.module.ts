@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {  FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FormComponent } from './form/form.component';
+import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
+import { ObservablePipeComponent } from './observable-pipe/observable-pipe.component';
 
 
 
@@ -11,15 +12,13 @@ import { FormComponent } from './form/form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
-
-  ],
+    AsyncPipeComponent,
+    ObservablePipeComponent
+    ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
-
-  ],
+    FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
