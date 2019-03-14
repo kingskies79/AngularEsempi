@@ -1,10 +1,14 @@
-import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener, HostBinding, Input } from '@angular/core';
+
 
 
 @Directive({
   selector: '[ccCardHover]'
 })
 export class CardHoverDirective {
+  @Input('ccCardHover') config = {
+    querySelector: '.card-text'
+  };
   @HostBinding('style.background' ) private ishovering= 'red'  ;
   constructor(private el: ElementRef, private render: Renderer) {
     render.setElementStyle(el.nativeElement,'background-color', 'yellow');

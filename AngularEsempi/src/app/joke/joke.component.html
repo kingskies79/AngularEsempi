@@ -1,4 +1,4 @@
-<div class="card card-block" ccCardHover>
+<div class="card card-block" [ccCardHover]="{querySelector:'.card-text'}">
     <ng-content select=".setup"></ng-content>
     <p class="card-text" [style.display]="'none'">
         <ng-content select=".punchline"></ng-content>
