@@ -9,14 +9,14 @@ export class CcRolloverDirective implements OnInit {
   over: ''
 };
 @HostBinding('src') private imagePath: string;
-@HostListener('mouseover') onmouseover(){
+@HostListener('mouseover') onmouseover() {
   this.imagePath = this.config.over;
 }
-@HostListener('mouseout') onmouseout(){
-  this.imagePath= this.config.init;
+@HostListener('mouseout') onmouseout() {
+  this.imagePath = this.config.init;
 }
   constructor() { }
-ngOnInit(){
+ngOnInit() {
   this.imagePath = this.config.init;
 }
 }
