@@ -11,13 +11,7 @@ data: any [];
 
  constructor() {
 
-  this.data = [
-    {name: 'boo'},
-    {name: 'damn'},
-    {name: 'ciao'},
-    {name: 'hell'},
-    {name: 'hello'}
-  ];
+
  }
 
  ngOnInit() {
