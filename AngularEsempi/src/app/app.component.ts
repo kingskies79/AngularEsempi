@@ -7,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements  OnInit {
-
+data: any [];
 
  constructor() {
 
-
+  this.data = [
+    {name: 'boo'},
+    {name: 'damn'},
+    {name: 'ciao'},
+    {name: 'hell'},
+    {name: 'hello'}
+  ];
  }
 
  ngOnInit() {

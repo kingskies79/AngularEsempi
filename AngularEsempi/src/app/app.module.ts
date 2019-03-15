@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {  FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
-import { ObservablePipeComponent } from './observable-pipe/observable-pipe.component';
+import { CleanPipe } from './clean.pipe';
 
 
 
@@ -12,8 +11,7 @@ import { ObservablePipeComponent } from './observable-pipe/observable-pipe.compo
 @NgModule({
   declarations: [
     AppComponent,
-    AsyncPipeComponent,
-    ObservablePipeComponent
+    CleanPipe
     ],
   imports: [
     BrowserModule,
