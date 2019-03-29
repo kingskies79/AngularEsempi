@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {  FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 
 
@@ -12,7 +13,8 @@ import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    TemplateFormComponent
     ],
   imports: [
     BrowserModule,
