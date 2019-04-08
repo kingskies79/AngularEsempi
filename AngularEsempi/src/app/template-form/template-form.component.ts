@@ -9,7 +9,7 @@ import { SignUp } from '../sign-up';
 })
 export class TemplateFormComponent implements OnInit {
   @ViewChild('refForm') myForm: FormGroup;
-  model = new SignUp();
+  model = new SignUp('fabio', 'leotta');
   languages: any [];
 
   constructor() {
