@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import {  FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { ModelFormComponent } from './model-form/model-form.component';
+import { ModelForm2Component } from './model-form2/model-form2.component';
 
 
 
@@ -12,7 +13,8 @@ import { ModelFormComponent } from './model-form/model-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ModelFormComponent
+    ModelFormComponent,
+    ModelForm2Component
     ],
   imports: [
     BrowserModule,
