@@ -5,28 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CleanPipe implements PipeTransform {
 
-
-  transform(value: any, args?: any): any {
-    let word = '';
-    if (value) {
-      console.log(value);
-      switch (value) {
-        case 'boo':
-          return '$%#@!';
-        case 'damn':
-          return '$%#@!';
-        case 'hell':
-          return '$%#@!';
-        default:
-          return value;
+    transform(value: string, badWords: string): string {
+      const badWordsList = badWords.split(',').map((item) => item.trim());
+      console.log(badWordsList);
+      for (const badWord of badWordsList) {
+        value = value.replace(badWord, "$%#@!")
       }
-      word = value;
-      console.log(value);
-
-    } else {
-      word = args;
+      return value;
     }
-    return word;
-  }
 
 }
