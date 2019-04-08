@@ -1,4 +1,4 @@
 export class SignUp {
-    constructor( public firstName= '', public lastName= '',
-                 public email= '', public password= '', public language= '') {}
+    constructor( public firstName: string, public lastName: string
+                ) {}
 }

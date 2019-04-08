@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import {  FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { TemplateForm2Component } from './template-form2/template-form2.component';
 
 
 
@@ -14,7 +15,8 @@ import { TemplateFormComponent } from './template-form/template-form.component';
   declarations: [
     AppComponent,
     SearchComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    TemplateForm2Component
     ],
   imports: [
     BrowserModule,
