@@ -1,0 +1,22 @@
+<form [formGroup]='myform' (ngSubmit)="onSubmit()">
+    <fieldset formGroupName='name'>
+        <div class="form-group" [ngClass]="{'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+                                        'has-success': lastName.valid && (firstName.dirty || firstName.touched)}">
+            <label for="firstName">First Name</label>
+            <input type="text" formControlName='firstName' class="form-control" required placeholder="Enter your name">
+            <div class="form-control-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                <p *ngIf="firstName.errors.required">The field is required!</p>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-danger': lastName.invalid && (lastName.dirty || lastName.touched),
+        'has-success': lastName.valid && (lastName.dirty || lastName.touched)}">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" formControlName='lastName' required placeholder="Enter your name">
+            <div class="form-control-feedback" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                <p *ngIf="lastName.errors.required">The field is required!</p>
+            </div>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
